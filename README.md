@@ -43,7 +43,7 @@ pip install -r requirements.txt
 GROQ_API_KEY=sua_api_key_aqui
 ```
 
-3. Crie a pasta `pdfs/` e coloque seus PDFs lá:
+3. Crie a pasta `pdfs/` na raiz e coloque seus PDFs lá:
 ```bash
 mkdir pdfs
 ```
