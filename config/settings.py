@@ -3,17 +3,13 @@
 This module handles environment variables and configuration settings.
 """
 
-from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
 
-    groq_api_key: str = Field(
-        ...,
-        description="Groq API key for LLM access",
-    )
+    groq_api_key: str
 
     model_config = SettingsConfigDict(
         env_file=".env",

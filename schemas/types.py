@@ -20,7 +20,6 @@ CNPJ = Annotated[
     str,
     AfterValidator(validate_cnpj),
     Field(
-        description="Service provider CNPJ (accepts formatted: XX.XXX.XXX/XXXX-XX)",
         min_length=14,
         max_length=18,  # Accepts formatted CNPJ (14 digits + formatting)
     ),
@@ -29,10 +28,7 @@ CNPJ = Annotated[
 CNPJOrCPF = Annotated[
     str | None,
     BeforeValidator(validate_cnpj_or_cpf),
-    Field(
-        default=None,
-        description="CNPJ or CPF (11 or 14 digits)",
-    ),
+    Field(default=None),
 ]
 
 UF = Annotated[
@@ -40,7 +36,6 @@ UF = Annotated[
     AfterValidator(validate_uf),
     Field(
         default=None,
-        description="State (UF) of issuance",
         max_length=2,
     ),
 ]
@@ -48,24 +43,18 @@ UF = Annotated[
 InvoiceDate = Annotated[
     date,
     BeforeValidator(parse_date),
-    Field(
-        description="Invoice issuance date",
-    ),
+    Field(),
 ]
 
 Currency = Annotated[
     float,
-    Field(
-        description="Monetary value",
-        ge=0,
-    ),
+    Field(ge=0),
 ]
 
 CurrencyOptional = Annotated[
     float | None,
     Field(
         default=None,
-        description="Optional monetary value",
         ge=0,
     ),
 ]
