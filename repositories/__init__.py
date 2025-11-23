@@ -1,0 +1,2 @@
+from repositories.pdf_repository import extract_text_from_pdf
+
